@@ -65,9 +65,11 @@ export default function Home(props) {
       input.input.length == maximoCaracteres
     ) {
       dispatch({ type: "INPUT", payload: id });
+      return;
     }
     if (input.input.length == maximoCaracteres) {
       dispatchLimite({ type: "LIMIT", payload: maximoCaracteres });
+      return;
     }
   }
 
