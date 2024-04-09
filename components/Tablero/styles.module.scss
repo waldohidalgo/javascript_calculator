@@ -1,0 +1,53 @@
+$border-radius: 5px;
+
+%border {
+  border: 1px solid black;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 70px;
+  filter: invert(1);
+}
+
+.wrapper_contenedor {
+  box-shadow: 0 0 5px 3px black;
+  border-radius: $border-radius;
+  position: relative;
+}
+
+.contenedor_calculadora {
+  @extend %border;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 80px));
+  gap: 1rem;
+  justify-items: center;
+  align-items: stretch;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.titulo {
+  @extend %border;
+  border-radius: $border-radius $border-radius 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-block: 1rem 0;
+  padding: 1rem;
+  background-color: #eee;
+}
+.logo-javascript {
+  display: inline-block;
+
+  color: #ffff00;
+  background-color: black;
+
+  span {
+    display: flex;
+  }
+}

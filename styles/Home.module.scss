@@ -1,0 +1,11 @@
+$breakpoint-mobile: 480px;
+
+.main {
+  width: 90%;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+
+  @media screen and (min-width: $breakpoint-mobile) {
+    max-width: 408px;
+  }
+}

@@ -1,0 +1,62 @@
+$breakpoint-mobile: 480px;
+
+$color-boton-numero: #9bedff;
+$border-color-numero: #000;
+
+$color-boton-operador: rgb(255, 183, 50);
+
+$color-boton-igualdad: rgb(0, 229, 118);
+
+%button_preset_style {
+  font-family: "Lexend", sans-serif;
+  cursor: pointer;
+  border: 2px solid $border-color-numero;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 0px $border-color-numero;
+  transition: transform 0.2s ease-in-out;
+  align-self: center;
+  @media screen and (min-width: $breakpoint-mobile) {
+    font-size: 2rem;
+  }
+  &:hover {
+    background-color: #000;
+    color: white;
+    transform: scale(1.05);
+    border-color: white;
+  }
+}
+
+.numero {
+  @extend %button_preset_style;
+  background-color: $color-boton-numero;
+}
+.operador {
+  @extend %button_preset_style;
+  background-color: $color-boton-operador;
+}
+.igualdad {
+  @extend %button_preset_style;
+  background-color: $color-boton-igualdad;
+}
+.clear {
+  @extend %button_preset_style;
+  border-radius: 5px;
+  background-color: rgb(220, 20, 60);
+  color: white;
+}
+.delete {
+  @extend %button_preset_style;
+  background-color: yellow;
+}
+.content {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
