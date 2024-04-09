@@ -49,7 +49,7 @@ function calcularResultado(state) {
   try {
     resultado = calcularOperacion(state.operaciones);
   } catch (err) {
-    resultado = "NAN";
+    resultado = "NAN⚠️ ";
   }
   if (/=/.test(state.operaciones)) {
     return state;
@@ -131,16 +131,25 @@ function filtraInput(state, inputChar) {
   }
   if (state.input === "0") {
     if (inputChar === ".") {
-      return { input: "0.", operaciones: state.operaciones + "0" + inputChar };
+      return {
+        input: "0.",
+        operaciones: state.operaciones.slice(0, -1) + "0" + inputChar,
+      };
     }
+
     if (inputChar !== "0") {
       return {
         input: inputChar,
-        operaciones: state.operaciones + inputChar,
+        operaciones: state.operaciones.slice(0, -1) + inputChar,
       };
+    }
+
+    if (inputChar === "0" && state.operaciones === "") {
+      return { input: "0", operaciones: "0" };
     }
     return state;
   }
+
   if (regexCheckDot.test(state.input) && inputChar === ".") {
     return state;
   }

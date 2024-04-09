@@ -25,9 +25,9 @@ export function calcularOperacion(operaciones) {
   const expresiones = operaciones.replace(/×/g, "*");
   const config = {
     number: "BigNumber",
-    precision: 5,
+    precision: 10,
   };
   const math = create(all, config);
 
-  return math.format(math.evaluate(expresiones));
+  return math.format(math.evaluate(expresiones), { notation: "fixed" });
 }

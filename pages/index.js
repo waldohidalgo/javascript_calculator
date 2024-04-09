@@ -8,6 +8,7 @@ import React from "react";
 import Footer from "../components/Footer";
 
 const maximoCaracteres = 15;
+import { flushSync } from "react-dom";
 
 import { initialStateInput, inputReducer } from "../reducer/reducerDisplay.js";
 import { initialStateLimite, limiteReducer } from "../reducer/reducerLimite.js";
@@ -33,13 +34,24 @@ export default function Home(props) {
       dispatch({ type: "CLEAR" });
       return;
     }
-    if (/^(add|subtract|divide|multiply)$/.test(id)) {
+    if (id == "add" || id == "subtract" || id == "multiply" || id == "divide") {
+      //
       dispatch({ type: "OPERATION", payload: id });
       return;
     }
     if (
       input.input.length < maximoCaracteres &&
-      /^(one|two|three|four|five|six|seven|eight|nine|zero|decimal)$/.test(id)
+      (id == "one" ||
+        id == "two" ||
+        id == "three" ||
+        id == "four" ||
+        id == "five" ||
+        id == "six" ||
+        id == "seven" ||
+        id == "eight" ||
+        id == "nine" ||
+        id == "zero" ||
+        id == "decimal")
     ) {
       dispatch({ type: "INPUT", payload: id });
       return;
@@ -60,6 +72,7 @@ export default function Home(props) {
       dispatch({ type: "DELETE" });
       return;
     }
+
     if (
       ["add", "subtract", "multiply", "divide"].includes(id) &&
       input.input.length == maximoCaracteres
